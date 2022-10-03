@@ -9,7 +9,7 @@
         <!--servlet-name标签给Servlet程序起一个别名（一般是类名）-->
         <servlet-name>helloServlet</servlet-name>
         <!--servlet-class是Servlet程序的全类名-->
-        <servlet-class>com.gh.tomcatlearn.HelloServlet</servlet-class>
+        <servlet-class>com.bluewhitecat.tomcatlearn.HelloServlet</servlet-class>
     </servlet>
 
     <!--servlet-mapping标签给Servlet程序配置访问地址-->
@@ -22,7 +22,7 @@
 
     <servlet>
         <servlet-name>HelloServlet2</servlet-name>
-        <servlet-class>com.gh.tomcatlearn.HelloServlet2</servlet-class>
+        <servlet-class>com.bluewhitecat.tomcatlearn.HelloServlet2</servlet-class>
     </servlet>
     
     <servlet-mapping>
@@ -32,7 +32,7 @@
 
     <servlet>
         <servlet-name>Servlet1</servlet-name>
-        <servlet-class>com.gh.tomcatlearn.forwardrequests.Servlet1</servlet-class>
+        <servlet-class>com.bluewhitecat.tomcatlearn.forwardrequests.Servlet1</servlet-class>
     </servlet>
 
     <servlet-mapping>
@@ -42,7 +42,7 @@
 
     <servlet>
         <servlet-name>Servlet2</servlet-name>
-        <servlet-class>com.gh.tomcatlearn.forwardrequests.Servlet2</servlet-class>
+        <servlet-class>com.bluewhitecat.tomcatlearn.forwardrequests.Servlet2</servlet-class>
     </servlet>
 
     <servlet-mapping>
@@ -52,7 +52,7 @@
 
     <servlet>
         <servlet-name>ResponseIOServlet</servlet-name>
-        <servlet-class>com.gh.tomcatlearn.ResponseIOServlet</servlet-class>
+        <servlet-class>com.bluewhitecat.tomcatlearn.ResponseIOServlet</servlet-class>
     </servlet>
 
     <servlet-mapping>
@@ -62,7 +62,7 @@
 
     <servlet>
         <servlet-name>RedirectTest</servlet-name>
-        <servlet-class>com.gh.tomcatlearn.redirect.RedirectTest</servlet-class>
+        <servlet-class>com.bluewhitecat.tomcatlearn.redirect.RedirectTest</servlet-class>
     </servlet>
 
     <servlet-mapping>
@@ -72,7 +72,7 @@
 
     <servlet>
         <servlet-name>Response</servlet-name>
-        <servlet-class>com.gh.tomcatlearn.redirect.Response</servlet-class>
+        <servlet-class>com.bluewhitecat.tomcatlearn.redirect.Response</servlet-class>
     </servlet>
 
     <servlet-mapping>

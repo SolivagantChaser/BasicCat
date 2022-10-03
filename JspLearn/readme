@@ -1,0 +1,23 @@
+jsp全称是Java server pages，Java的服务器页面
+jsp的主要作用是代替server程序回传html页面的数据
+因为servlet程序回传html页面数据是一件非常繁琐的事情，开发成本和维护成本都极高
+
+jsp页面本质上是Servlet程序
+当第一次访问jsp页面时，tomcat服务器会将jsp页面翻译成一个Java源文件，并且进行编译为class字节码程序
+该类继承自HttpServlet
+
+jsp的九大内置对象
+request     请求对象
+response    响应对象
+pageContext jsp的上下文对象
+session     会话对象
+application ServletContext对象
+config      ServletConfig对象
+out         jsp输出流对象
+page        指向当前jsp的对象
+exception   异常对象
+
+什么是Listener监听器
+1、Listener监听器是javaweb的三大组件之一。Java web的三大组件分别是：Servlet程序、Filter过滤器、Listener监听器。
+2、Listener是JavaEE的规范，就是接口
+3、监听器的作用是监听某种事物的变化，然后通过回调函数，反馈给客户（程序）去做一些响应的处理
