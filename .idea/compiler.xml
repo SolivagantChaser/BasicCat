@@ -6,14 +6,18 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="servletlistener" />
         <module name="tomcatLearn" />
         <module name="JspLearn" />
+        <module name="fileuploadanddownload" />
         <module name="book" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="book" target="17" />
+      <module name="fileuploadanddownload" target="17" />
       <module name="JspLearn" target="17" />
+      <module name="servletlistener" target="17" />
       <module name="tomcatLearn" target="1.8" />
     </bytecodeTargetLevel>
   </component>

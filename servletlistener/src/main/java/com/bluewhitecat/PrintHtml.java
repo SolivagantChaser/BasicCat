@@ -1,6 +1,5 @@
-package com.bluewhitecat.servlet;
+package com.bluewhitecat;
 
-import javax.servlet.ServletContextListener;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
