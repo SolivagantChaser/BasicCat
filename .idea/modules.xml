@@ -2,12 +2,14 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/JspLearn/JspLearn.iml" filepath="$PROJECT_DIR$/JspLearn/JspLearn.iml" />
-      <module fileurl="file://$PROJECT_DIR$/book/book.iml" filepath="$PROJECT_DIR$/book/book.iml" />
-      <module fileurl="file://$PROJECT_DIR$/fileuploadanddownload/fileuploadanddownload.iml" filepath="$PROJECT_DIR$/fileuploadanddownload/fileuploadanddownload.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/repository.iml" filepath="$PROJECT_DIR$/.idea/repository.iml" />
-      <module fileurl="file://$PROJECT_DIR$/servletlistener/servletlistener.iml" filepath="$PROJECT_DIR$/servletlistener/servletlistener.iml" />
-      <module fileurl="file://$PROJECT_DIR$/tomcatLearn/tomcatLearn.iml" filepath="$PROJECT_DIR$/tomcatLearn/tomcatLearn.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ChatroomService/ChatroomService.iml" filepath="$PROJECT_DIR$/ChatroomService/ChatroomService.iml" />
+      <module fileurl="file://$PROJECT_DIR$/CommodityService/CommodityService.iml" filepath="$PROJECT_DIR$/CommodityService/CommodityService.iml" />
+      <module fileurl="file://$PROJECT_DIR$/LoginService/LoginService.iml" filepath="$PROJECT_DIR$/LoginService/LoginService.iml" />
+      <module fileurl="file://$PROJECT_DIR$/MerchantService/MerchantService.iml" filepath="$PROJECT_DIR$/MerchantService/MerchantService.iml" />
+      <module fileurl="file://$PROJECT_DIR$/OrderService/OrderService.iml" filepath="$PROJECT_DIR$/OrderService/OrderService.iml" />
+      <module fileurl="file://$PROJECT_DIR$/PaymentService/PaymentService.iml" filepath="$PROJECT_DIR$/PaymentService/PaymentService.iml" />
+      <module fileurl="file://$PROJECT_DIR$/CustomerService/UserService.iml" filepath="$PROJECT_DIR$/CustomerService/UserService.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/blueWhiteCat.iml" filepath="$PROJECT_DIR$/.idea/blueWhiteCat.iml" />
     </modules>
   </component>
 </project>

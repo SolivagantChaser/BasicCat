@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.july.mymall.commodityservice.mapper.ProductMapper">
+
+    <!-- 基础结果映射 -->
+    <resultMap id="BaseResultMap" type="com.july.mymall.commodityservice.entity.Product">
+        <id column="id" property="id" />
+        <result column="name" property="name" />
+        <result column="sub_title" property="subTitle" />
+        <result column="description" property="description" />
+        <result column="category_id" property="categoryId" />
+        <result column="original_price" property="originalPrice" />
+        <result column="current_price" property="currentPrice" />
+        <result column="stock" property="stock" />
+        <result column="sales" property="sales" />
+        <result column="sort" property="sort" />
+        <result column="status" property="status" />
+        <result column="images" property="images" />
+        <result column="gallery" property="gallery" />
+        <result column="create_time" property="createTime" />
+        <result column="update_time" property="updateTime" />
+        <result column="product_type" property="productType" />
+        <result column="extra_info" property="extraInfo" />
+    </resultMap>
+
+    <!-- 插入产品（自增主键版） -->
+    <insert id="insert" parameterType="com.july.mymall.commodityservice.entity.Product">
+        INSERT INTO product (
+        name,
+        description,
+        price,
+        category_id,
+        create_time,
+        update_time
+        ) VALUES (
+        #{name},
+        #{description},
+        #{price},
+        #{categoryId},
+        #{createTime},
+        #{updateTime}
+        )
+
+        <selectKey keyProperty="id" resultType="java.lang.Long" order="AFTER">
+            SELECT LAST_INSERT_ID()
+        </selectKey>
+    </insert>
+
+    <!-- 动态条件分页查询 -->
+    <select id="selectByParams" resultMap="BaseResultMap">
+        SELECT * FROM product
+        <where>
+            <if test="name != null and name != ''">
+                AND name LIKE "%"#{name}"%"
+            </if>
+            <if test="categoryId != null">
+                AND category_id = #{categoryId}
+            </if>
+            <if test="minPrice != null">
+                AND price &gt;= #{minPrice}
+            </if>
+            <if test="maxPrice != null">
+                AND price  &lt;= #{maxPrice}
+            </if>
+            <if test="status != null">
+                AND status = #{status}
+            </if>
+        </where>
+        ORDER BY create_time DESC
+        LIMIT #{offset}, #{pageSize}
+    </select>
+
+    <!-- 根据 ID 查询产品 -->
+    <select id="getById" resultMap="BaseResultMap">
+        SELECT * FROM product
+        WHERE id = #{productId}
+    </select>
+
+</mapper>

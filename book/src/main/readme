@@ -1,8 +1,0 @@
-web层		com.gh.web/servlet/controller
-service层	com.gh.service				service接口包
-			com.gh.service.impl			service接口实现类
-dao持久层	com.gh.dao					dao接口包
-			com.gh.dao.impl				dao接口实现类
-实体bean对象com.gh.pojo/entity/domain/bean	javaBean类
-测试包		com.gh.test/junit
-工具类的包	com.gh.utils
