@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.july.mymall.commodityservice.mapper.ProductSpecMapper">
+
+    <!-- 基础结果映射 -->
+    <resultMap id="BaseResultMap" type="com.july.mymall.commodityservice.entity.ProductSpec">
+        <id column="id" property="id" />
+        <result column="product_id" property="productId" />
+        <result column="spec_name" property="specName" />
+        <result column="spec_values" property="specValues" />
+        <result column="price" property="price" />
+        <result column="stock" property="stock" />
+        <result column="images" property="images" />
+    </resultMap>
+
+    <insert id="insert" parameterType="com.july.mymall.commodityservice.entity.ProductSpec">
+        <!-- 插入产品 -->
+        INSERT INTO product
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            id,
+            name,
+            description,
+            price,
+            category_id,
+            create_time,
+            update_time
+        </trim>
+        VALUES
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            #{id},
+            #{name},
+            #{description},
+            #{price},
+            #{categoryId},
+            #{createTime},
+            #{updateTime}
+        </trim>
+
+        <!-- 可选：获取自增主键（如果使用自增ID） -->
+        <selectKey keyProperty="id" resultType="java.lang.Long" order="AFTER">
+            SELECT LAST_INSERT_ID()
+        </selectKey>
+    </insert>
+
+    <!-- 根据产品ID和规格ID查询 -->
+    <select id="getByProductAndSpec" resultType="com.july.mymall.commodityservice.entity.ProductSpec">
+        SELECT
+            id,
+            product_id AS productId,
+            spec_id AS specId,
+            spec_name AS specName,
+            price,
+            stock,
+            status,
+            create_time AS createTime,
+            update_time AS updateTime
+        FROM product_spec
+        WHERE
+            product_id = #{productId}
+        AND spec_id = #{specId}
+    </select>
+
+
+</mapper>

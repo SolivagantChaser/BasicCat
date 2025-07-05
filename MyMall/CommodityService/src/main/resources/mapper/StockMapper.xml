@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.july.mymall.commodityservice.mapper.StockMapper">
+
+    <!-- 完整的结果映射 -->
+    <resultMap id="BaseResultMap" type="com.july.mymall.commodityservice.entity.Stock">
+        <id column="id" property="id" />
+        <result column="product_id" property="productId" />
+        <result column="spec_id" property="specId" />
+        <result column="quantity" property="quantity" />
+        <result column="frozen_quantity" property="frozenQuantity" />
+        <result column="version" property="version" />
+        <result column="update_time" property="updateTime" />
+    </resultMap>
+
+    <!-- 查询方法 -->
+    <select id="getByProductAndSpec" resultMap="BaseResultMap">
+        SELECT *
+        FROM stock  <!-- 修正表名 -->
+        WHERE product_id = #{productId}  <!-- 修正参数名 -->
+        AND spec_id = #{specId}
+    </select>
+
+    <!-- 更新库存（带版本控制） -->
+    <update id="updateStockWithVersion" parameterType="Stock">
+        UPDATE stock
+        SET
+        quantity = #{quantity},              <!-- 修正字段名 -->
+        frozen_quantity = #{frozenQuantity}, <!-- 添加冻结库存更新 -->
+        version = version + 1,
+        update_time = NOW()
+        WHERE
+        product_id = #{productId}
+        AND spec_id = #{specId}             <!-- 添加 spec_id 条件 -->
+        AND version = #{version}
+    </update>
+</mapper>
