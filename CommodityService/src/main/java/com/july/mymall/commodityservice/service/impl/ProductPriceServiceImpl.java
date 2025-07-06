@@ -2,7 +2,7 @@ package com.july.mymall.commodityservice.service.impl;
 
 import com.july.mymall.commodityservice.mapper.ProductMapper;
 import com.july.mymall.commodityservice.mapper.ProductSpecMapper;
-import com.july.mymall.commodityservice.dto.dto.PromotionPriceResult;
+import com.july.mymall.commodityservice.dto.PromotionPriceResult;
 import com.july.mymall.commodityservice.entity.ProductSpec;
 import com.july.mymall.commodityservice.request.PromotionPriceRequest;
 import com.july.mymall.commodityservice.service.ProductPriceService;

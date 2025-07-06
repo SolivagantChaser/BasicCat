@@ -1,4 +1,4 @@
-package com.july.mymall.commodityservice.dto.dto;
+package com.july.mymall.commodityservice.dto;
 
 import lombok.Data;
 

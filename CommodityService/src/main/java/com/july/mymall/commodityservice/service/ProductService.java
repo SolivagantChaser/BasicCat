@@ -1,7 +1,7 @@
 package com.july.mymall.commodityservice.service;
 
-import com.july.mymall.commodityservice.dto.dto.ProductDTO;
-import com.july.mymall.commodityservice.dto.dto.ProductSpecDTO;
+import com.july.mymall.commodityservice.dto.ProductDTO;
+import com.july.mymall.commodityservice.dto.ProductSpecDTO;
 import com.july.mymall.commodityservice.request.ProductCreateRequest;
 import com.july.mymall.commodityservice.request.ProductQueryParams;
 import com.july.mymall.commodityservice.request.ProductUpdateRequest;

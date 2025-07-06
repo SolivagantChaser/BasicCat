@@ -1,11 +1,13 @@
 package com.july.mymall.commodityservice;
 
-import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.EnableAspectJAutoProxy;
+import org.springframework.scheduling.annotation.EnableAsync;
 
 @SpringBootApplication
-@MapperScan("com.july.mymall.commodityservice.mapper") // 指定 Mapper 包路径
+@EnableAspectJAutoProxy  // 启用 AOP 自动代理
+@EnableAsync
 public class CommodityServiceApplication {
 
     public static void main(String[] args) {

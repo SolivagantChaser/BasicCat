@@ -2,40 +2,43 @@ package com.july.mymall.commodityservice.service.impl;
 
 import com.alibaba.fastjson2.JSON;
 import com.july.mymall.commodityservice.mapper.AttributeMapper;
-import com.july.mymall.commodityservice.dto.dto.AttributeDTO;
+import com.july.mymall.commodityservice.dto.AttributeDTO;
 import com.july.mymall.commodityservice.entity.Attribute;
 import com.july.mymall.commodityservice.service.AttributeService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.concurrent.CompletableFuture;
 
+@Service
 public class AttributeServiceImpl implements AttributeService {
     @Autowired
     private AttributeMapper attributeMapper;
     @Override
-    public List<AttributeDTO> getAttributesByCategoryId(Long categoryId) {
+    public CompletableFuture<List<AttributeDTO>> getAttributesByCategoryId(Long categoryId) {
         return null;
     }
 
     @Override
-    public void saveCategoryAttributes(Long categoryId, List<Attribute> attributes) {
-
+    public CompletableFuture<Void> saveCategoryAttributes(Long categoryId, List<Attribute> attributes) {
+        return CompletableFuture.completedFuture(null);
     }
 
     // 实现类示例（属性校验逻辑）
     @Override
-    public boolean validateProductAttributes(Long categoryId, Map<String, Object> attributes) {
+    public CompletableFuture<Boolean> validateProductAttributes(Long categoryId, Map<String, Object> attributes) {
         List<Attribute> categoryAttributes = attributeMapper.getByCategoryId(categoryId);
         if (categoryAttributes == null || categoryAttributes.isEmpty()) {
-            return true; // 无属性时默认合法
+            return CompletableFuture.completedFuture(true); // 无属性时默认合法
         }
 
         for (Attribute attr : categoryAttributes) {
             if (attr.getIsRequired() && !attributes.containsKey(attr.getName())) {
-                return false; // 缺少必填属性
+                return CompletableFuture.completedFuture(false); // 缺少必填属性
             }
 
             Object value = attributes.get(attr.getName());
@@ -48,13 +51,13 @@ public class AttributeServiceImpl implements AttributeService {
                 // 枚举值校验
                 Set<String> validOptions = new HashSet<>(JSON.parseArray(attr.getOptions(), String.class));
                 if ("select".equals(attr.getValueType()) && !validOptions.contains(value)) {
-                    return false;
+                    return CompletableFuture.completedFuture(false);
                 }
                 if ("multi".equals(attr.getValueType())) {
                     List<String> values = JSON.parseArray(value.toString(), String.class);
                     for (String v : values) {
                         if (!validOptions.contains(v)) {
-                            return false;
+                            return CompletableFuture.completedFuture(false);
                         }
                     }
                 }
@@ -63,11 +66,11 @@ public class AttributeServiceImpl implements AttributeService {
                 try {
                     Double.parseDouble(value.toString());
                 } catch (NumberFormatException e) {
-                    return false;
+                    return CompletableFuture.completedFuture(false);
                 }
             }
             // 其他类型校验略...
         }
-        return true;
+        return CompletableFuture.completedFuture(true);
     }
 }

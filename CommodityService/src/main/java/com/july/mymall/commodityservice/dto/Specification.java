@@ -1,9 +1,9 @@
-package com.july.mymall.commodityservice.dto.dto;
+package com.july.mymall.commodityservice.dto;
 
 import lombok.Data;
 
 @Data
-public class Specifications {
+public class Specification {
     private Long id;
     // 商品id
     private Long productId;

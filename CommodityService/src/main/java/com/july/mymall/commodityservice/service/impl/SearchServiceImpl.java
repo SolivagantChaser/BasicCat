@@ -1,8 +1,8 @@
 package com.july.mymall.commodityservice.service.impl;
 
-import com.july.mymall.commodityservice.dto.dto.FilterParams;
-import com.july.mymall.commodityservice.dto.dto.ProductSearchDTO;
-import com.july.mymall.commodityservice.dto.dto.SearchParams;
+import com.july.mymall.commodityservice.dto.FilterParams;
+import com.july.mymall.commodityservice.dto.ProductSearchDTO;
+import com.july.mymall.commodityservice.dto.SearchParams;
 import com.july.mymall.commodityservice.service.SearchService;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Service;
