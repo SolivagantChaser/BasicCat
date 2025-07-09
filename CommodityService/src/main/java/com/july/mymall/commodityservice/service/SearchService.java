@@ -4,11 +4,9 @@ import com.july.mymall.commodityservice.dto.FilterParams;
 import com.july.mymall.commodityservice.dto.ProductSearchDTO;
 import com.july.mymall.commodityservice.dto.SearchParams;
 import org.springframework.data.domain.Page;
-import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-@Service
 public interface SearchService {
     // 构建商品索引
     void buildProductIndex(Long productId);

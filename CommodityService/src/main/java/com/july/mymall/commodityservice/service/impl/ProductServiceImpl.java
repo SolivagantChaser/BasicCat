@@ -1,8 +1,7 @@
 package com.july.mymall.commodityservice.service.impl;
 
 import com.alibaba.fastjson2.JSON;
-import com.july.mymall.commodityservice.convert.ProductConvert;
-import com.july.mymall.commodityservice.mapper.ProductMapper;
+import com.july.mymall.commodityservice.convert.ProductConvertMapper;
 import com.july.mymall.commodityservice.mapper.ProductSpecMapper;
 import com.july.mymall.commodityservice.dto.ProductDTO;
 import com.july.mymall.commodityservice.dto.ProductSpecDTO;
@@ -21,6 +20,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.util.StringUtils;
 
 import java.util.List;
 import java.util.Map;
@@ -32,15 +32,16 @@ import java.util.stream.Collectors;
 @Service
 public class ProductServiceImpl implements ProductService {
     @Autowired
-    private ProductMapper productMapper;
+    private com.july.mymall.commodityservice.mapper.ProductMapper productMapper;
     @Autowired
     private ProductSpecMapper productSpecMapper;
     @Autowired
     private StockService stockService;
     @Autowired
     private SearchService searchService;
+
     @Autowired
-    private RedisTemplate<String, Object> redisTemplate;
+    private RedisTemplate<String, String> redisTemplate;
 
     private final String CACHE_KEY = "product_list_page:";
     private final long CACHE_TTL = 3600; // 1小时缓存
@@ -76,7 +77,7 @@ public class ProductServiceImpl implements ProductService {
         // 4. 异步构建搜索索引
         searchService.buildProductIndex(productId);
 
-        return ProductConvert.toDTO(product);
+        return ProductConvertMapper.INSTANCE.toDto(product);
     }
 
     @Override
@@ -128,16 +129,16 @@ public class ProductServiceImpl implements ProductService {
     public Page<ProductDTO> getProductPage(ProductQueryParams params) {
         // 生成缓存Key（包含查询参数）
         String cacheKey = CACHE_KEY + JSON.toJSONString(params);
-        Page<ProductDTO> cachedResult = (Page<ProductDTO>) redisTemplate.opsForValue().get(cacheKey);
+        String cachedResult = redisTemplate.opsForValue().get(cacheKey);
 
-        if (cachedResult != null) {
-            return cachedResult; // 命中缓存
+        if (StringUtils.hasLength(cachedResult)) {
+            return (Page<ProductDTO>) JSON.parseObject(cachedResult); // 命中缓存
         }
 
         // 未命中缓存，查询数据库
         Page<Product> productPage = productMapper.selectByParams(params);
         List<ProductDTO> dtos = productPage.getContent().stream()
-                .map(ProductConvert::toDTO)
+                .map(ProductConvertMapper.INSTANCE::toDto)
                 .collect(Collectors.toList());
 
         // 封装分页结果
@@ -147,7 +148,7 @@ public class ProductServiceImpl implements ProductService {
 
         // 写入缓存（异步处理，避免影响响应时间）
         CompletableFuture.runAsync(() -> {
-            redisTemplate.opsForValue().set(cacheKey, result, CACHE_TTL, TimeUnit.SECONDS);
+            redisTemplate.opsForValue().set(cacheKey, JSON.toJSONString(result), CACHE_TTL, TimeUnit.SECONDS);
         });
 
         return result;

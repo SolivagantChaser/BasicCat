@@ -38,7 +38,7 @@
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="ChatroomService" options="-parameters" />
-      <module name="CommodityService" options="-parameters" />
+      <module name="CommodityService" options="-parameters --add-modules java.base" />
       <module name="LoginService" options="-parameters" />
       <module name="MerchantService" options="-parameters" />
       <module name="OrderService" options="-parameters" />

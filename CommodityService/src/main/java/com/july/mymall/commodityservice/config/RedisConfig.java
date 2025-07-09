@@ -32,8 +32,8 @@ public class RedisConfig {
     }
 
     @Bean
-    public RedisTemplate<String, Object> redisTemplate(RedisConnectionFactory factory) {
-        RedisTemplate<String, Object> template = new RedisTemplate<>();
+    public RedisTemplate<String, String> redisTemplate(RedisConnectionFactory factory) {
+        RedisTemplate<String, String> template = new RedisTemplate<>();
         template.setConnectionFactory(factory);
 
         template.setKeySerializer(stringSerializer);
@@ -51,17 +51,4 @@ public class RedisConfig {
         template.setConnectionFactory(factory);
         return template;
     }
-
-    // 如果需要自定义连接参数
-    /*
-    @Bean
-    public RedisConnectionFactory redisConnectionFactory() {
-        RedisStandaloneConfiguration config = new RedisStandaloneConfiguration();
-        config.setHostName("localhost");
-        config.setPort(6379);
-        // config.setPassword(RedisPassword.of("yourPassword"));
-        
-        return new LettuceConnectionFactory(config);
-    }
-    */
 }
