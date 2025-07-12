@@ -4,7 +4,6 @@ import com.july.mymall.commodityservice.common.Result;
 import com.july.mymall.commodityservice.request.ProductCreateRequest;
 import com.july.mymall.commodityservice.request.ProductQueryParams;
 import com.july.mymall.commodityservice.request.ProductUpdateRequest;
-import com.july.mymall.commodityservice.response.ProductDetailResponse;
 import com.july.mymall.commodityservice.response.ProductDetailsResponse;
 import org.springframework.web.bind.annotation.*;
 
@@ -21,7 +20,7 @@ public class CommodityController {
 
     // 查询商品详情
     @GetMapping("/{commodityId}")
-    public Result<ProductDetailResponse> getCommodityDetail(@PathVariable Long commodityId){
+    public Result<ProductDetailsResponse> getCommodityDetail(@PathVariable Long commodityId){
         return Result.success(null);
     }
 

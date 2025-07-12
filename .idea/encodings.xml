@@ -5,8 +5,6 @@
     <file url="file://$PROJECT_DIR$/ChatroomService/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/CommodityService/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/CommodityService/src/main/resources" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/CustomerService/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/CustomerService/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/LoginService/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/LoginService/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/MerchantService/src/main/java" charset="UTF-8" />
@@ -15,6 +13,8 @@
     <file url="file://$PROJECT_DIR$/OrderService/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/PaymentService/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/PaymentService/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/UserService/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/UserService/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/tomcatLearn/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/tomcatLearn/src/main/resources" charset="UTF-8" />
   </component>
