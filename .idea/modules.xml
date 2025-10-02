@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/ChatroomService/ChatroomService.iml" filepath="$PROJECT_DIR$/ChatroomService/ChatroomService.iml" />
       <module fileurl="file://$PROJECT_DIR$/CommodityService/CommodityService.iml" filepath="$PROJECT_DIR$/CommodityService/CommodityService.iml" />
+      <module fileurl="file://$PROJECT_DIR$/CommonService/CommonService.iml" filepath="$PROJECT_DIR$/CommonService/CommonService.iml" />
       <module fileurl="file://$PROJECT_DIR$/LoginService/LoginService.iml" filepath="$PROJECT_DIR$/LoginService/LoginService.iml" />
       <module fileurl="file://$PROJECT_DIR$/MerchantService/MerchantService.iml" filepath="$PROJECT_DIR$/MerchantService/MerchantService.iml" />
       <module fileurl="file://$PROJECT_DIR$/OrderService/OrderService.iml" filepath="$PROJECT_DIR$/OrderService/OrderService.iml" />

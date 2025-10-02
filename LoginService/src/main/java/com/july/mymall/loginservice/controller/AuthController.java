@@ -1,5 +1,6 @@
 package com.july.mymall.loginservice.controller;
 
+import com.july.mymall.loginservice.config.rate.RateLimit;
 import com.july.mymall.loginservice.dto.Permission;
 import com.july.mymall.loginservice.request.LoginRequest;
 import com.july.mymall.loginservice.response.LoginResponse;
@@ -22,6 +23,7 @@ public class AuthController {
         this.permissionService = permissionService;
     }
 
+    @RateLimit(limit = 5)
     @PostMapping("/login")
     public Result<LoginResponse> login(@RequestBody LoginRequest request) {
         return Result.success(authService.login(

@@ -14,6 +14,7 @@
         <option value="$PROJECT_DIR$/CommodityService/pom.xml" />
         <option value="$PROJECT_DIR$/ChatroomService/pom.xml" />
         <option value="$PROJECT_DIR$/UserService/pom.xml" />
+        <option value="$PROJECT_DIR$/CommonService/pom.xml" />
       </list>
     </option>
   </component>
